@@ -1,8 +1,49 @@
 import Lottie from 'lottie-react';
-
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import registerLottiData from '../../assets/lotte/AnimationLotti.json';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
+  const navigate = useNavigate();
+  const { signInWithGoogle, createUser, updateUserProfile, setUser } =
+    useContext(AuthContext);
+
+  const handleSignUp = async e => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const pass = form.password.value;
+    console.log({ email, pass, name, photo });
+    try {
+      //2. User Registration
+      const result = await createUser(email, pass);
+      console.log(result);
+      await updateUserProfile(name, photo);
+      setUser({ ...result.user, photoURL: photo, displayName: name });
+      toast.success('Signup Successful');
+      navigate('/');
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+    }
+  };
+
+  // Google Signin
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+
+      toast.success('Signin Successful');
+      navigate('/');
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+    }
+  };
   return (
     <div className="grid md:grid-cols-2 items-center ">
       <div>
@@ -14,7 +55,7 @@ const Register = () => {
         /> */}
       </div>
       <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
-        <form className="card-body">
+        <form onSubmit={handleSignUp} className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Name</span>
@@ -23,6 +64,18 @@ const Register = () => {
               type="text"
               placeholder="Name"
               name="name"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input
+              type="url"
+              placeholder="Photo URL"
+              name="photo"
               className="input input-bordered"
               required
             />
@@ -60,6 +113,9 @@ const Register = () => {
             <button className="btn btn-primary">Register Now!</button>
           </div>
         </form>
+        <div onClick={handleGoogleSignIn} className="btn">
+          Google
+        </div>
       </div>
     </div>
   );

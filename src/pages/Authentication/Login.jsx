@@ -1,13 +1,54 @@
+import toast from 'react-hot-toast';
 import registerLottiData from '../../assets/lotte/login.json';
 import Lottie from 'lottie-react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 const Signin = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || '/';
+  // console.log(from)
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
+
+  // Google Signin
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+
+      toast.success('Signin Successful');
+      navigate(from, { replace: true });
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+    }
+  };
+
+  // Email Password Signin
+  const handleSignIn = async e => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const pass = form.password.value;
+    console.log({ email, pass });
+    try {
+      //User Login
+      await signIn(email, pass);
+      toast.success('Signin Successful');
+      navigate(from, { replace: true });
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+    }
+  };
+
   return (
     <div className="grid lg:grid-cols-2 items-center">
       <div className="w-6/12 mx-auto">
         <Lottie animationData={registerLottiData}></Lottie>
       </div>
       <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
-        <form className="card-body">
+        <form onSubmit={handleSignIn} className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -40,7 +81,10 @@ const Signin = () => {
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>
           </div>
-          <div className="text-center bg-green-500 py-4 px-10 text-white text-2xl btn font-bold">
+          <div
+            onClick={handleGoogleSignIn}
+            className="text-center bg-green-500 py-4 px-10 text-white text-2xl btn font-bold"
+          >
             Google
           </div>
         </form>

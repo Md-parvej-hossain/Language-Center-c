@@ -1,9 +1,13 @@
+import Carousel from '../components/Carosol';
+import CatacoreData from '../components/CatacoreData';
+import Status from '../components/Status';
 
 const Home = () => {
   return (
     <div>
-      
-      <h1>This is Home Components</h1>
+      <Carousel />
+      <Status />
+      <CatacoreData />
     </div>
   );
 };
