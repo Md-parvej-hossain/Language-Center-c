@@ -9,6 +9,7 @@ import Mybookedtutor from '../pages/Mybookedtutor';
 import Addtutprials from '../pages/Addtutprials';
 import Titorialsdetailspags from '../pages/Titorialsdetailspags';
 import FindTutora from '../pages/FindTutora';
+import About from '../components/About';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
       {
         path: '/findtutors',
         element: <FindTutora />,
+      },
+      //about component no pagess
+      {
+        path: '/aboutus',
+        element: <About />,
       },
       {
         path: '/mytutorials',

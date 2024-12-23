@@ -1,6 +1,6 @@
 const Status = () => {
   return (
-    <div className="stats shadow w-11/12 mx-auto flex justify-center">
+    <div className="stats shadow w-full mx-auto flex justify-center">
       <div className="stat place-items-center">
         <div className="stat-title">Downloads</div>
         <div className="stat-value">31K</div>

@@ -18,7 +18,7 @@ const Navber = () => {
           </h2>
         </a>
       </div>
-      <div className="flex-none gap-2">
+      <div className="flex-none gap-2 z-20">
         <div className="flex list-none gap-5 text-lg text-[#2c3e50] ">
           <li>
             <Link to={'/'}>Home</Link>
@@ -28,7 +28,7 @@ const Navber = () => {
             <Link to={'/findtutors'}>Find tutors</Link>
           </li>
           <li>
-            <Link to={'/aboutus'}>About us</Link>
+            <Link to={'/aboutus'}>Out Center</Link>
           </li>
           {!user && (
             <li>

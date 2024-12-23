@@ -1,6 +1,17 @@
+import { useEffect, useState } from 'react';
 import ToiralsCard from '../components/ToiralsCard';
+import axios from 'axios';
 
 const FindTutora = () => {
+  const [tutoras, setTutors] = useState([]);
+  useEffect(() => {
+    fetchAllJobs();
+  }, []);
+  const fetchAllJobs = async () => {
+    const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/alldata`);
+    setTutors(data);
+  };
+  console.log(tutoras);
   return (
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
       <div>
@@ -12,9 +23,12 @@ const FindTutora = () => {
               className="border p-4 rounded-lg"
             >
               <option value="">Filter By Category</option>
-              <option value="Web Development">Web Development</option>
-              <option value="Graphics Design">Graphics Design</option>
-              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="ENGLISH">ENGLISH</option>
+              <option value="FRENCH">FRENCH</option>
+              <option value="ITALIAN">ITALIAN</option>
+              <option value="GERMAN">GERMAN</option>
+              <option value="SPANISH">SPANISH</option>
+              <option value="JAPANESE">JAPANESE</option>
             </select>
           </div>
 
@@ -47,7 +61,8 @@ const FindTutora = () => {
           <button className="btn">Reset</button>
         </div>
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          <ToiralsCard />
+          {tutoras &&
+            tutoras.map(data => <ToiralsCard key={data._id} data={data} />)}
         </div>
       </div>
     </div>

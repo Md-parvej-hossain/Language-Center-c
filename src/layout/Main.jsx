@@ -5,8 +5,8 @@ import Footer from '../components/Footer';
 const Main = () => {
   return (
     <div>
-      <Navber />
-      <div className="min-h-[calc(100vh-306px)]">
+      <div className="min-h-[calc(100vh-306px)] w-11/12 mx-auto">
+        <Navber />
         <Outlet />
       </div>
       <Footer />
