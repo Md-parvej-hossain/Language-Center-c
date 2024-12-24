@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../providers/AuthProvider';
-import { useNavigate, useParams } from 'react-router-dom';
+import {useEffect, useState } from 'react';
+
+import {  useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const Titorialsdetailspags = () => {
-  const navigete = useNavigate();
-  const { user } = useContext(AuthContext);
+ 
   const { id } = useParams();
   const [data, setData] = useState({});
   useEffect(() => {
