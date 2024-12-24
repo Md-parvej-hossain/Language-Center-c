@@ -18,7 +18,6 @@ const MyTutorials = () => {
     );
     setMyData(data);
   };
-  console.log(myData);
   const handleDelete = async id => {
     try {
       await axios.delete(`${import.meta.env.VITE_API_URL}/deleatdata/${id}`);
@@ -122,7 +121,7 @@ const MyTutorials = () => {
                         </div>
                       </td>
                       <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
-                        {data.description}
+                        {data.description.substring(0, 20)}...
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">

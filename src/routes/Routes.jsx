@@ -12,12 +12,14 @@ import FindTutora from '../pages/FindTutora';
 import About from '../components/About';
 import Update from '../pages/Update';
 import Test from '../pages/Test';
+import Content from '../components/Content';
+import Error from '../components/Error';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Main />,
-    errorElement: 'Hi This is a erroe',
+    errorElement: <Error/>,
     children: [
       {
         path: '/',
@@ -44,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: '/test',
         element: <Test />,
+      },
+      {
+        path: '/content',
+        element: <Content />,
       },
       {
         path: '/mytutorials',

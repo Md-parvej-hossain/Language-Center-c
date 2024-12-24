@@ -1,8 +1,7 @@
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 const ToiralsCard = ({ data }) => {
-  console.log(data);
-  const { photo, nametuters, price, description, language, review, _id } =
-    data || {};
+  const { photo, nametuters, price, language, review, _id } = data || {};
   return (
     <Link
       to={`/titorialsdetailspags/${_id}`}
@@ -37,7 +36,7 @@ const ToiralsCard = ({ data }) => {
           <div className="flex items-center justify-between space-y-4">
             <p>Price : ${price}</p>
           </div>
-          <p>{description}</p>
+          <p>{data.description.substring(0, 100)}.</p>
         </div>
       </div>
     </Link>

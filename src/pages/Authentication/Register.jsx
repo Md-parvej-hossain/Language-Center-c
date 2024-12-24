@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import registerLottiData from '../../assets/lotte/AnimationLotti.json';
 import { useContext } from 'react';
@@ -113,6 +113,15 @@ const Register = () => {
             <button className="btn btn-primary">Register Now!</button>
           </div>
         </form>
+        <p className="text-center pb-2 font-semibold">
+          Allready have an account ?{' '}
+          <Link className="text-red-500" to={'/login'}>
+            Login
+          </Link>
+        </p>
+        <div className="divider divide-gray-100 text-[#6A6F77]">
+          Other log in options
+        </div>
         <div onClick={handleGoogleSignIn} className="btn">
           Google
         </div>

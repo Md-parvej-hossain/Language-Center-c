@@ -1,7 +1,7 @@
 const Welcome = () => {
   return (
     <>
-      <div className="my-10">
+      <div className="my-20">
         <div className="text-center pb-10">
           <h1 className="text-[#969696] font-bold text-5xl">Welcome, Folks!</h1>
           <p className="text-lg text-[#5BD9B3] font-semibold pt-5">

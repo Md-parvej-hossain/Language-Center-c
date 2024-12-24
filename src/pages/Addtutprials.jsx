@@ -35,7 +35,7 @@ const Addtutprials = () => {
       price,
       description,
     };
-    console.log(addData);
+
     //post requast
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/add-data`, addData);

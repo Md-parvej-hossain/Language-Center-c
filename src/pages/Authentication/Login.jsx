@@ -1,7 +1,7 @@
 import toast from 'react-hot-toast';
 import registerLottiData from '../../assets/lotte/login.json';
 import Lottie from 'lottie-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 const Signin = () => {
@@ -80,6 +80,15 @@ const Signin = () => {
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>
+          </div>
+          <p className="text-center pb-2 font-semibold">
+            Dont’t Have An Account ?
+            <Link className="text-red-500" to={'/register'}>
+              Register
+            </Link>
+          </p>
+          <div className="divider divide-gray-100 text-[#6A6F77]">
+            Other log in options
           </div>
           <div
             onClick={handleGoogleSignIn}
