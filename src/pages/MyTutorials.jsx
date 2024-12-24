@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import axios from 'axios';
-import { format } from 'date-fns';
 import toast from 'react-hot-toast';
 
 const MyTutorials = () => {
@@ -11,6 +10,7 @@ const MyTutorials = () => {
 
   useEffect(() => {
     fetchAllData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
   const fetchAllData = async () => {
     const { data } = await axios.get(
@@ -19,7 +19,6 @@ const MyTutorials = () => {
     setMyData(data);
   };
   console.log(myData);
-  // /delete functionality
   const handleDelete = async id => {
     try {
       await axios.delete(`${import.meta.env.VITE_API_URL}/deleatdata/${id}`);
@@ -31,10 +30,13 @@ const MyTutorials = () => {
       toast.error(err.message);
     }
   };
+
   return (
-    <section className="container px-4 mx-auto pt-12">
+    <section className="container px-4 mx-auto pt-12 pb-10">
       <div className="flex items-center gap-x-3">
-        <h2 className="text-lg font-medium text-gray-800 ">My Posted Jobs</h2>
+        <h2 className="text-lg font-medium text-gray-800 ">
+          My Posted Tutorials
+        </h2>
 
         <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
           Tutorials {myData.length}
@@ -53,7 +55,7 @@ const MyTutorials = () => {
                       className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500"
                     >
                       <div className="flex items-center gap-x-3">
-                        <span>Title</span>
+                        <span>Courses Title</span>
                       </div>
                     </th>
 
@@ -61,7 +63,7 @@ const MyTutorials = () => {
                       scope="col"
                       className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                     >
-                      <span>Deadline</span>
+                      <span>Review</span>
                     </th>
 
                     <th
@@ -77,7 +79,7 @@ const MyTutorials = () => {
                       scope="col"
                       className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                     >
-                      Category
+                      Language
                     </th>
                     <th
                       scope="col"
@@ -96,23 +98,26 @@ const MyTutorials = () => {
                   {myData.map(data => (
                     <tr key={data._id}>
                       <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
-                        {data.title}
+                        {data.corscTitle}
                       </td>
 
-                      <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
+                      {/* <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
                         {data.dadeline && format(new Date(data.dadeline), 'P')}
                         {data.dadline}
-                      </td>
+                      </td> */}
 
                       <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
-                        ${data.min_price} - ${data.max_price}
+                        {data.review}
+                      </td>
+                      <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
+                        ${data.price}
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-2">
                           <p
                             className={`px-3 py-1  text-blue-500 bg-blue-100/60 text-xs  rounded-full`}
                           >
-                            {data.category}
+                            {data.language}
                           </p>
                         </div>
                       </td>
@@ -142,7 +147,7 @@ const MyTutorials = () => {
                           </button>
 
                           <Link
-                            // to={`/update/${job._id}`}
+                            to={`/update/${data._id}`}
                             className="text-gray-500 transition-colors duration-200   hover:text-yellow-500 focus:outline-none"
                           >
                             <svg

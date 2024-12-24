@@ -23,6 +23,9 @@ const Navber = () => {
           <li>
             <Link to={'/'}>Home</Link>
           </li>
+          <li>
+            <Link to={'/test'}>Test</Link>
+          </li>
 
           <li>
             <Link to={'/findtutors'}>Find tutors</Link>

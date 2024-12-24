@@ -10,6 +10,8 @@ import Addtutprials from '../pages/Addtutprials';
 import Titorialsdetailspags from '../pages/Titorialsdetailspags';
 import FindTutora from '../pages/FindTutora';
 import About from '../components/About';
+import Update from '../pages/Update';
+import Test from '../pages/Test';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,11 @@ const router = createBrowserRouter([
         path: '/aboutus',
         element: <About />,
       },
+      //test putpass
+      {
+        path: '/test',
+        element: <Test />,
+      },
       {
         path: '/mytutorials',
         element: (
@@ -63,10 +70,18 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/titorialsdetailspags',
+        path: '/titorialsdetailspags/:id',
         element: (
           <PrivateRoute>
             <Titorialsdetailspags />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/update/:id',
+        element: (
+          <PrivateRoute>
+            <Update />
           </PrivateRoute>
         ),
       },

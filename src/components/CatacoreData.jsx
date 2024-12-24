@@ -15,14 +15,13 @@ const CatacoreData = () => {
   };
   return (
     <Tabs>
-      <div className=" container px-6 py-10 mx-auto">
-        <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-5xl ">
-          What We Learn
-        </h1>
-
-        <p className="max-w-2xl mx-auto my-6 text-center text-sky-500 ">
-          For You to Choose
-        </p>
+      <div className=" container  mx-auto">
+        <div className="text-center pb-10">
+          <h1 className="text-[#969696] font-bold text-5xl">What We Learn</h1>
+          <p className="text-lg text-[#5BD9B3] font-semibold pt-5">
+            For You to Choose
+          </p>
+        </div>
         <div className="flex items-center justify-center ">
           <TabList>
             <Tab> ENGLISH</Tab>
@@ -37,7 +36,7 @@ const CatacoreData = () => {
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {tutoras &&
               tutoras
-                .filter(tutor => tutor.category === 'ENGLISH')
+                .filter(tutor => tutor.language === 'ENGLISH')
                 .map(data => <ToiralsCard key={data._id} data={data} />)}
           </div>
         </TabPanel>
@@ -46,7 +45,7 @@ const CatacoreData = () => {
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {tutoras &&
               tutoras
-                .filter(tutor => tutor.category === 'FRENCH')
+                .filter(tutor => tutor.language === 'FRENCH')
                 .map(data => <ToiralsCard key={data._id} data={data} />)}
           </div>
         </TabPanel>
@@ -55,7 +54,7 @@ const CatacoreData = () => {
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {tutoras &&
               tutoras
-                .filter(tutor => tutor.category === 'ITALIAN')
+                .filter(tutor => tutor.language === 'ITALIAN')
                 .map(data => <ToiralsCard key={data._id} data={data} />)}
           </div>
         </TabPanel>
@@ -63,7 +62,7 @@ const CatacoreData = () => {
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {tutoras &&
               tutoras
-                .filter(tutor => tutor.category === 'GERMAN')
+                .filter(tutor => tutor.language === 'GERMAN')
                 .map(data => <ToiralsCard key={data._id} data={data} />)}
           </div>
         </TabPanel>
@@ -71,7 +70,7 @@ const CatacoreData = () => {
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {tutoras &&
               tutoras
-                .filter(tutor => tutor.category === 'SPANISH')
+                .filter(tutor => tutor.language === 'SPANISH')
                 .map(data => <ToiralsCard key={data._id} data={data} />)}
           </div>
         </TabPanel>
@@ -79,7 +78,7 @@ const CatacoreData = () => {
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {tutoras &&
               tutoras
-                .filter(tutor => tutor.category === 'JAPANESE')
+                .filter(tutor => tutor.language === 'JAPANESE')
                 .map(data => <ToiralsCard key={data._id} data={data} />)}
           </div>
         </TabPanel>

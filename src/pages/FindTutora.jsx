@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import ToiralsCard from '../components/ToiralsCard';
 import axios from 'axios';
-
 const FindTutora = () => {
   const [tutoras, setTutors] = useState([]);
   useEffect(() => {

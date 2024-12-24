@@ -1,5 +1,4 @@
-import { useContext, useState } from 'react';
-import DatePicker from 'react-datepicker';
+import { useContext } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import { AuthContext } from '../providers/AuthProvider';
 import axios from 'axios';
@@ -7,33 +6,41 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 const Addtutprials = () => {
   const navigete = useNavigate();
-  const [date, setDate] = useState(new Date());
   const { user } = useContext(AuthContext);
-  const handaleAddTutprials = async e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const form = e.target;
-    const title = form.title.value;
-
-    const email = user?.email;
-    const dadline = date;
-    const category = form.category.value;
+    //name, email , Image , language, price, description
+    const corscTitle = form.corscTitle.value;
+    const email = user.email;
+    const language = form.language.value;
+    const price = form.price.value;
+    const description = form.description.value;
+    const nametuters = form.name.value;
+    const review = form.review.value;
+    const photo = form.photo.value;
     const addData = {
-      title,
+      corscTitle,
+      review,
       email,
-      dadline,
-      category,
+      photo,
+      nametuters,
       buyer: {
         email,
         name: user?.displayName,
         photo: user?.photoURL,
       },
+
+      language,
+      price,
+      description,
     };
     console.log(addData);
     //post requast
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/add-data`, addData);
       form.reset();
-      toast.success('Data Added Successfullt!!');
+      toast.success('Data Added Successfull  rounded-nonet!!');
       navigete('/mytutorials');
     } catch (err) {
       console.log(err);
@@ -41,108 +48,121 @@ const Addtutprials = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
-      <section className=" p-2 md:p-6 mx-auto bg-white rounded-md shadow-md ">
-        <h2 className="text-lg font-semibold text-gray-700 capitalize ">
-          Post a Job
-        </h2>
-
-        <form onSubmit={handaleAddTutprials}>
-          <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-            <div>
-              <label className="text-gray-700 " htmlFor="job_title">
-                Job Title
-              </label>
-              <input
-                id="job_title"
-                name="title"
-                type="text"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-              />
-            </div>
-
-            <div>
-              <label className="text-gray-700 " htmlFor="emailAddress">
-                Email Address
-              </label>
-              <input
-                id="emailAddress"
-                type="email"
-                defaultValue={user?.email}
-                disabled={true}
-                name="email"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-              />
-            </div>
-            <div className="flex flex-col gap-2 ">
-              <label className="text-gray-700">Deadline</label>
-
-              {/* Date Picker Input Field */}
-              <DatePicker
-                className="border p-2 rounded-md"
-                selected={date}
-                onChange={date => setDate(date)}
-              />
-            </div>
-
-            <div className="flex flex-col gap-2 ">
-              <label className="text-gray-700 " htmlFor="category">
-                Category
-              </label>
-              <select
-                name="category"
-                id="category"
-                className="border p-2 rounded-md"
-              >
-                <option value="ENGLISH">ENGLISH</option>
-                <option value="FRENCH">FRENCH</option>
-                <option value="ITALIAN">ITALIAN</option>
-                <option value="GERMAN">GERMAN</option>
-                <option value="SPANISH">SPANISH</option>
-                <option value="JAPANESE">JAPANESE</option>
-              </select>
-            </div>
-            <div>
-              <label className="text-gray-700 " htmlFor="min_price">
-                Minimum Price
-              </label>
-              <input
-                id="min_price"
-                name="min_price"
-                type="number"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-              />
-            </div>
-
-            <div>
-              <label className="text-gray-700 " htmlFor="max_price">
-                Maximum Price
-              </label>
-              <input
-                id="max_price"
-                name="max_price"
-                type="number"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col gap-2 mt-4">
-            <label className="text-gray-700 " htmlFor="description">
-              Description
+    <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
+      <h2 className="text-2xl font-bold text-center mb-4">Add You Tutorials</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Courscs Title</span>
+          </label>
+          <input
+            type="text"
+            name="corscTitle"
+            className="input input-bordered w-full  rounded-none "
+            placeholder="Courses Tital"
+            required
+          />
+        </div>
+        <div className=" md:flex lg:flex items-center justify-between">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Name</span>
             </label>
-            <textarea
-              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-              name="description"
-              id="description"
-            ></textarea>
+            <input
+              type="text"
+              name="name"
+              className="input input-bordered w-full  rounded-none "
+              placeholder="Enter your Name"
+              required
+            />
           </div>
-          <div className="flex justify-end mt-6">
-            <button className="disabled:cursor-not-allowed px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
-              Save
-            </button>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              defaultValue={user?.email}
+              disabled={true}
+              className="input input-bordered w-full  rounded-none "
+              placeholder="Enter your email"
+              required
+            />
           </div>
-        </form>
-      </section>
+        </div>
+
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Photo</span>
+          </label>
+          <input
+            type="photoURL"
+            name="photo"
+            className="input input-bordered w-full  rounded-none "
+            placeholder="Enter a PhotoURL"
+            required
+          />
+        </div>
+
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Language</span>
+          </label>
+          <select
+            name="language"
+            id="category"
+            className="border p-2 rounded-md"
+          >
+            <option value="ENGLISH">ENGLISH</option>
+            <option value="FRENCH">FRENCH</option>
+            <option value="ITALIAN">ITALIAN</option>
+            <option value="GERMAN">GERMAN</option>
+            <option value="SPANISH">SPANISH</option>
+            <option value="JAPANESE">JAPANESE</option>
+          </select>
+        </div>
+        <div className=" md:flex lg:flex items-center justify-between">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Price</span>
+            </label>
+            <input
+              type="number"
+              name="price"
+              className="input input-bordered w-full  rounded-none "
+              placeholder="Enter price"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Review</span>
+            </label>
+            <input
+              type="number"
+              name="review"
+              className="input input-bordered w-full  rounded-none  bg-gray-100 "
+            />
+          </div>
+        </div>
+
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Description</span>
+          </label>
+          <textarea
+            name="description"
+            className="textarea textarea-bordered w-full  rounded-none"
+            placeholder="Enter description"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" className="btn btn-primary w-full  rounded-none">
+          Add Tutorials
+        </button>
+      </form>
     </div>
   );
 };
