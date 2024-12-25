@@ -23,8 +23,16 @@ const Titorialsdetailspags = () => {
     setData(data);
   };
 
-  const { price, description, language, review, corscTitle, _id, buyer } =
-    data || {};
+  const {
+    price,
+    description,
+    language,
+    review,
+    corscTitle,
+    _id,
+    buyer,
+    nametuters,
+  } = data || {};
   //handale form sunmite
   const handalesubmite = async e => {
     e.preventDefault();
@@ -32,10 +40,12 @@ const Titorialsdetailspags = () => {
     const stuprice = form.price.value;
     const ueprice = parseFloat(stuprice);
     const priceRang = parseFloat(price);
+    const name = nametuters;
     const email = user?.email;
+    const languages = language;
     // const review = form.review.value;
     const corceId = _id;
-    const bookedData = { price, email, review, corceId };
+    const bookedData = { price, email, review, corceId, languages, name };
 
     if (user?.email === buyer?.email) return toast.error('Action Not Permeat');
     // price valedation
@@ -94,7 +104,7 @@ const Titorialsdetailspags = () => {
               </div>
             </div>
             <p className="mt-6 text-lg font-bold text-gray-600 ">
-              Price Range:${price}
+              Price Range: ${price}
             </p>
           </div>
         </div>

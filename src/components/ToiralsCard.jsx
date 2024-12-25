@@ -9,7 +9,7 @@ const ToiralsCard = ({ data }) => {
     >
       <div className="card bg-base-100 rounded-none space-y-5">
         <figure>
-          <img src={photo} alt="Shoes" />
+          <img className="w-[288px] h-[191px]" src={photo} alt="Shoes" />
         </figure>
         <div className="">
           <div>
@@ -37,6 +37,12 @@ const ToiralsCard = ({ data }) => {
             <p>Price : ${price}</p>
           </div>
           <p>{data.description.substring(0, 100)}.</p>
+          <button className=" w-10">
+            <img
+              src="https://img.icons8.com/?size=100&id=8OOIdPe6NXVi&format=gif"
+              alt=""
+            />
+          </button>
         </div>
       </div>
     </Link>

@@ -7,11 +7,8 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
-
-
-
 const Update = () => {
-    const navigete = useNavigate();
+  const navigete = useNavigate();
   const { user } = useContext(AuthContext);
   const { id } = useParams();
   const [data, setData] = useState({});
@@ -25,47 +22,50 @@ const Update = () => {
     );
     setData(data);
   };
- const handleSubmit = async e => {
-   e.preventDefault();
-   const form = e.target;
-   //name, email , Image , language, price, description
-   const corscTitle = form.corscTitle.value;
-   const email = user.email;
-   const language = form.language.value;
-   const price = form.price.value;
-   const description = form.description.value;
-   const nametuters = form.name.value;
-   const review = form.review.value;
-   const photo = form.photo.value;
-   const updateData = {
-     corscTitle,
-     review,
-     email,
-     photo,
-     nametuters,
-     buyer: {
-       email,
-       name: user?.displayName,
-       photo: user?.photoURL,
-     },
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const form = e.target;
+    //name, email , Image , language, price, description
+    const corscTitle = form.corscTitle.value;
+    const email = user.email;
+    const language = form.language.value;
+    const price = form.price.value;
+    const description = form.description.value;
+    const nametuters = form.name.value;
+    const review = form.review.value;
+    const photo = form.photo.value;
+    const updateData = {
+      corscTitle,
+      review,
+      email,
+      photo,
+      nametuters,
+      buyer: {
+        email,
+        name: user?.displayName,
+        photo: user?.photoURL,
+      },
 
-     language,
-     price,
-     description,
-   };
-   console.log(updateData);
-   //post requast
-   try {
-     await axios.put(`${import.meta.env.VITE_API_URL}/update-data/${id}`, updateData);
-     form.reset();
-     toast.success('Data Update Successfull !!');
-     navigete('/mytutorials');
-   } catch (err) {
-     console.log(err);
-     toast.error(err.message);
-   }
- };
-  
+      language,
+      price,
+      description,
+    };
+    console.log(updateData);
+    //post requast
+    try {
+      await axios.put(
+        `${import.meta.env.VITE_API_URL}/update-data/${id}`,
+        updateData
+      );
+      form.reset();
+      toast.success('Data Update Successfull !!');
+      navigete('/mytutorials');
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
+  };
+
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
       <h2 className="text-2xl font-bold text-center mb-4">
@@ -93,7 +93,8 @@ const Update = () => {
             <input
               type="text"
               name="name"
-              defaultValue={data.name}
+              defaultValue={data.buyer?.name}
+              disabled={true}
               className="input input-bordered w-full  rounded-none "
               placeholder="Enter your Name"
               required
@@ -170,6 +171,7 @@ const Update = () => {
             <input
               type="number"
               defaultValue={data.review}
+              disabled={true}
               name="review"
               className="input input-bordered w-full bg-gray-100 "
             />
