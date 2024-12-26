@@ -30,19 +30,19 @@ export default function Carosol() {
         <SwiperSlide>
           <Slide
             image="https://i.ibb.co.com/dtZdw8d/girl-2771936-1280.jpg"
-            text="Get Your Web Development Projects Done in minutes"
+            text="Get Your English Learning Course Done in minutes"
           />
         </SwiperSlide>
         <SwiperSlide>
           <Slide
             image="https://i.ibb.co.com/1MBB9X8/istockphoto-1305349522-1024x1024.jpg"
-            text="Get Your Graphics Design Projects Done in minutes"
+            text="Get Your French Learning Course Done in minutes"
           />
         </SwiperSlide>
         <SwiperSlide>
           <Slide
             image="https://i.ibb.co.com/WkCbPxC/istockphoto-2061200156-1024x1024.jpg"
-            text="Start Your Digital Marketing Campaigns up n running"
+            text="Get Your Japanese Learning Course Done in minutes"
           />
         </SwiperSlide>
       </Swiper>

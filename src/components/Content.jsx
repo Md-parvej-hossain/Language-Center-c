@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Content = () => {
   return (
-    <div className="w-10/12 mx-auto">
+    <div className="w-full mx-auto">
       <h1 className="text[#969690] text-5xl font-bold py-10">Course Content</h1>
       <div className="space-y-5">
         <div>

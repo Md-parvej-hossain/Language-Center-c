@@ -6,16 +6,21 @@ const Footer = () => {
         <p className="text-lg text-[#5BD9B3] font-semibold pt-5">
           Get the Latest News and Special Offers
         </p>
-        <div className="flex pt-10">
-          <div className="form-control w-6/12 mx-auto ">
+        <form className="w-7/12 mx-auto mt-10">
+          <div className="flex p-1 overflow-hidden  rounded-lg  focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
             <input
-              type="email"
-              placeholder="Enter You email"
-              className="input input-bordered flex"
-              required
+              className="px-6 py-2 w-full text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
+              type="text"
+              name="search"
+              placeholder="Enter Your Email"
+              aria-label="Enter Your Email"
             />
+
+            <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
+              Submit
+            </button>
           </div>
-        </div>
+        </form>
       </div>
 
       <footer className="footer  text-[#969696] p-10">

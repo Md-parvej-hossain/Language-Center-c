@@ -10,7 +10,7 @@ const ToiralsCard = ({ data }) => {
       <div className="card bg-base-100 rounded-none gap-y-5">
         <figure>
           <img
-            className="w-[290px] h-[191px] object-cover"
+            className="w-full h-[191px] object-cover"
             src={photo}
             alt="img"
           />
