@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Content = () => {
   return (
     <div className="w-10/12 mx-auto">
@@ -100,9 +102,12 @@ const Content = () => {
           max="100"
         ></progress>
         <progress className="progress w-full my-4"></progress>
-        <button className="btn bg-sky-300 rounded-none i w-32 mt-10">
+        <Link
+          to={'/findtutors'}
+          className="btn bg-sky-300 rounded-none i w-32 mt-10"
+        >
           Start Now
-        </button>
+        </Link>
       </div>
     </div>
   );

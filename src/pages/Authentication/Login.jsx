@@ -49,6 +49,7 @@ const Signin = () => {
       </div>
       <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
         <form onSubmit={handleSignIn} className="card-body">
+          <h1 className="text-3xl text-center font-bold">Login Now!</h1>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -57,7 +58,7 @@ const Signin = () => {
               type="email"
               placeholder="email"
               name="email"
-              className="input input-bordered"
+              className="input input-bordered rounded-none"
               required
             />
           </div>
@@ -69,7 +70,7 @@ const Signin = () => {
               type="password"
               placeholder="password"
               name="password"
-              className="input input-bordered"
+              className="input input-bordered rounded-none"
               required
             />
             <label className="label">
@@ -79,7 +80,9 @@ const Signin = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn text-white font-semibold bg-[#CB9DF0] rounded-none">
+              Login
+            </button>
           </div>
           <p className="text-center pb-2 font-semibold">
             Dont’t Have An Account ?
@@ -92,7 +95,7 @@ const Signin = () => {
           </div>
           <div
             onClick={handleGoogleSignIn}
-            className="text-center bg-green-500 py-4 px-10 text-white text-2xl btn font-bold"
+            className="text-center bg-[#EBEAFF]  text-[#A294F9] text-2xl btn font-bold rounded-none"
           >
             Google
           </div>

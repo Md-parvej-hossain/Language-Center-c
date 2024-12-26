@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navber = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -20,22 +20,20 @@ const Navber = () => {
       </div>
 
       <div className="flex-none gap-2 z-20">
-        <div className="flex list-none gap-5 text-lg text-[#2c3e50] ">
+        <div className="flex list-none gap-5 text-lg text-[#2c3e50] font-medium ">
           <li>
-            <Link to={'/'}>Home</Link>
-          </li>
-          <li>
-            <Link to={'/test'}>Test</Link>
-          </li>
-          <li>
-            <Link to={'/content'}>Content</Link>
+            <NavLink to={'/'}>Home</NavLink>
           </li>
 
           <li>
-            <Link to={'/findtutors'}>Find tutors</Link>
+            <NavLink to={'/content'}>Content</NavLink>
+          </li>
+
+          <li>
+            <NavLink to={'/findtutors'}>Find tutors</NavLink>
           </li>
           <li>
-            <Link to={'/aboutus'}>Out Center</Link>
+            <NavLink to={'/aboutus'}>Our Center</NavLink>
           </li>
           {!user && (
             <li>

@@ -11,7 +11,7 @@ import Titorialsdetailspags from '../pages/Titorialsdetailspags';
 import FindTutora from '../pages/FindTutora';
 import About from '../components/About';
 import Update from '../pages/Update';
-import Test from '../pages/Test';
+
 import Content from '../components/Content';
 import Error from '../components/Error';
 
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Main />,
-    errorElement: <Error/>,
+    errorElement: <Error />,
     children: [
       {
         path: '/',
@@ -42,11 +42,7 @@ const router = createBrowserRouter([
         path: '/aboutus',
         element: <About />,
       },
-      //test putpass
-      {
-        path: '/test',
-        element: <Test />,
-      },
+
       {
         path: '/content',
         element: <Content />,

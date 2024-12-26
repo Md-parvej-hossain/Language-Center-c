@@ -47,7 +47,7 @@ const MyTutorials = () => {
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div className="overflow-hidden border border-gray-200  md:rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-gray-200">
                   <tr>
                     <th
                       scope="col"
@@ -92,7 +92,7 @@ const MyTutorials = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200 ">
+                <tbody className="bg-[#F5EFFF] divide-y divide-gray-200 ">
                   {/* Genarate dynamick tr */}
                   {myData.map(data => (
                     <tr key={data._id}>
