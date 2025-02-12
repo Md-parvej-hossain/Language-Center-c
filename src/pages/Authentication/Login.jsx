@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-import axios from 'axios';
+
 const Signin = () => {
   const navigate = useNavigate();
   const location = useLocation();

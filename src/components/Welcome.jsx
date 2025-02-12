@@ -86,7 +86,7 @@ const Welcome = () => {
               for International Students
             </p>
           </div>
-          <button className="btn rounded-none text-white bg-[#5BD9B3] px-16 border-none ">
+          <button className="btn rounded-none text-white bg-[#5BD9B3] md:px-16 border-none ">
             Learn More
           </button>
         </div>

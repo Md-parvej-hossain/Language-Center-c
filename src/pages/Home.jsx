@@ -9,7 +9,10 @@ import Welcome from '../components/Welcome';
 const Home = () => {
   return (
     <div>
-      <Carousel />
+      <div>
+          <Carousel /> 
+      </div>
+   
       <Status />
       <Welcome />
       <CatacoreData />
