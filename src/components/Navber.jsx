@@ -71,6 +71,9 @@ const Navber = () => {
                 <Link to={'mybookedtutor'}>My booked tutors</Link>
               </li>
               <li>
+                <Link to={'dashboard'}>Dashboard</Link>
+              </li>
+              <li>
                 <button onClick={logOut}>Logout</button>
               </li>
             </ul>

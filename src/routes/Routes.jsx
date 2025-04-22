@@ -14,6 +14,8 @@ import Update from '../pages/Update';
 
 import Content from '../components/Content';
 import Error from '../components/Error';
+import DashBoard from '../layout/DashBoard';
+import Profile from '../components/dashboard/Profile';
 
 const router = createBrowserRouter([
   {
@@ -86,6 +88,16 @@ const router = createBrowserRouter([
             <Update />
           </PrivateRoute>
         ),
+      },
+    ],
+  },
+  {
+    path: '/dashboard',
+    element: <DashBoard />,
+    children: [
+      {
+        path: '/dashboard/profile',
+        element: <Profile />,
       },
     ],
   },
