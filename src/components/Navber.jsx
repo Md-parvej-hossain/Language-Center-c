@@ -32,6 +32,17 @@ const Navber = () => {
           <li>
             <NavLink to={'/findtutors'}>Find tutors</NavLink>
           </li>
+
+          {user && (
+            <div className="flex gap-5">
+              <li>
+                <NavLink to={'/mytutorials'}>My Tutorials</NavLink>
+              </li>
+              <li>
+                <NavLink to={'/mybookedtutor'}>My booked tutors</NavLink>
+              </li>
+            </div>
+          )}
           <li>
             <NavLink to={'/aboutus'}>Our Center</NavLink>
           </li>
@@ -63,12 +74,6 @@ const Navber = () => {
             >
               <li>
                 <Link to={'addtutprials'}>Add Tutorials</Link>
-              </li>
-              <li>
-                <Link to={'mytutorials'}>My Tutorials</Link>
-              </li>
-              <li>
-                <Link to={'mybookedtutor'}>My booked tutors</Link>
               </li>
               <li>
                 <Link to={'dashboard'}>Dashboard</Link>

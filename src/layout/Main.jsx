@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 const Main = () => {
   return (
     <div>
-      <div className="pb-24 ">
+      <div className="pb-20 ">
         <Navber />
       </div>
 

@@ -17,7 +17,9 @@ const CatacoreData = () => {
     <Tabs>
       <div className=" container  mx-auto">
         <div className="text-center pb-10">
-          <h1 className="text-[#969696] font-bold text-5xl">What We Learn</h1>
+          <h1 className="text-[#969696] font-bold text-2xl md:text-3xl lg:text-5xl">
+            What We Learn
+          </h1>
           <p className="text-lg text-[#5BD9B3] font-semibold pt-5">
             For You to Choose
           </p>

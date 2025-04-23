@@ -1,8 +1,10 @@
 const UpcamingCourcess = () => {
   return (
-    <div className="bg-[#F2F2F2] p-20">
+    <div className="bg-[#F2F2F2] p-2 md:p-5 lg:p-20">
       <div className="text-center mb-20">
-        <h1 className="text-5xl text-[#969696] font-bold">Upcoming Courses </h1>
+        <h1 className="text-2xl md:text-3 lg:text-5xl text-[#969696] font-bold">
+          Upcoming Courses{' '}
+        </h1>
         <p className="text-sky-500 mt-5">Wait For a While</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10 gap-5">

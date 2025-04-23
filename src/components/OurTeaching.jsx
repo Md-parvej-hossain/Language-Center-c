@@ -1,9 +1,9 @@
 const OurTeaching = () => {
   return (
-    <div className="bg-[#EDEDEC] p-12 my-20">
+    <div className="bg-[#EDEDEC] p-2 my-2 md:p-5 md:my-6 lg:p-12 lg:my-20">
       <div className="text-center">
         <p className=" text-[#F24080] mb-5 text-2xl">Methodology</p>
-        <h1 className="text-5xl font-bold text-[#301A52] ">
+        <h1 className="text-2xl md:text-xl lg:text-5xl font-bold text-[#301A52] ">
           Our Teaching Methods
         </h1>
       </div>

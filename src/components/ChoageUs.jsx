@@ -2,12 +2,14 @@ const ChoageUs = () => {
   return (
     <div className="my-20">
       <div className="text-center pb-10">
-        <h1 className="text-[#969696] font-bold text-5xl">Why Choose Us</h1>
+        <h1 className="text-[#969696] font-bold text-2xl md:text-3xl lg:text-5xl">
+          Why Choose Us
+        </h1>
         <p className="text-lg text-[#5BD9B3] font-semibold pt-5">
           Simple Reasons
         </p>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         <div className="flex flex-col gap-6">
           <div className="flex items-start gap-3">
             <img
