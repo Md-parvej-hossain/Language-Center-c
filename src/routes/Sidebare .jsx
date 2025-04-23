@@ -5,10 +5,11 @@ import {
   FaUsers,
   FaUserCircle,
   FaBars,
+  FaHome,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 const Sidebare = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <div className="flex">
       {/* Sidebar */}
@@ -24,13 +25,26 @@ const Sidebare = () => {
           >
             <FaBars />
           </button>
-          {isOpen && <h2 className="text-xl font-bold">Dashboard</h2>}
+          <Link to={'/'}>
+            {' '}
+            {isOpen && (
+              <h2 className="text-xl font-bold text-[#009DE4] shadow-2xl">
+                Dashboard
+              </h2>
+            )}{' '}
+          </Link>
         </div>
         <ul className="menu p-0">
           <li>
             <Link to={'/dashboard/user'} className="flex items-center gap-2">
               <FaUser />
               {isOpen && 'User'}
+            </Link>
+          </li>
+          <li>
+            <Link to={'/'} className="flex items-center gap-2">
+              <FaHome />
+              {isOpen && 'Home'}
             </Link>
           </li>
           <li>
@@ -49,7 +63,7 @@ const Sidebare = () => {
             </Link>
           </li>
           <li>
-            <Link to={'/dashboard/profile'} className="flex items-center gap-2">
+            <Link className="flex items-center gap-2">
               <FaUserCircle />
               {isOpen && 'Profile'}
             </Link>

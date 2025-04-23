@@ -69,7 +69,7 @@ const Titorialsdetailspags = () => {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row justify-around gap-5  items-center min-h-[calc(100vh-306px)] md:max-w-screen-xl mx-auto ">
+      <div className="flex flex-col md:flex-row justify-around gap-5  items-center min-h-[calc(100vh-306px)] md:max-w-screen-2xl mx-auto my-10">
         {/* courcss Details */}
         <div className="flex-1  px-4 py-7 bg-white rounded-md shadow-md md:min-h-[350px]">
           <div className="flex items-center justify-between">

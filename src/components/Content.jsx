@@ -7,14 +7,14 @@ const Content = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             src="https://i.ibb.co.com/1MBB9X8/istockphoto-1305349522-1024x1024.jpg"
-            className="max-w-sm rounded-lg shadow-2xl"
+            className="w-[300px] rounded-lg shadow-2xl"
           />
           <div>
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-2xl md:3xl lgtext-5xl font-bold">
               Take this course to further <br />
               improve your language skills.
             </h1>
-            <p className="py-6">
+            <p className="py-2 md:py-3 lg:py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
@@ -25,7 +25,9 @@ const Content = () => {
           </div>
         </div>
       </div>
-      <h1 className="text[#969690] text-5xl font-bold py-10">Course Content</h1>
+      <h1 className="text[#969690] text-2xl md:3xl lgtext-5xl font-bold py-10">
+        Course Content
+      </h1>
       <div className="space-y-5">
         <div>
           <p className="text-sky-300">

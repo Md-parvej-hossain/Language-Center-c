@@ -96,7 +96,7 @@ const router = createBrowserRouter([
     element: <DashBoard />,
     children: [
       {
-        path: '/dashboard/profile',
+        index: true,
         element: <Profile />,
       },
     ],

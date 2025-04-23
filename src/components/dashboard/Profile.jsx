@@ -1,7 +1,7 @@
 const Profile = () => {
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-md p-6">
+    <div className="min-h-screen bg-gray-100 md:p-4 ml-14 lg:ml-0  md:ml-0">
+      <div className="max-w-7xl mx-auto bg-white shadow-md rounded-md p-6">
         <h2 className="text-2xl font-semibold mb-6">My profile</h2>
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           <div>
