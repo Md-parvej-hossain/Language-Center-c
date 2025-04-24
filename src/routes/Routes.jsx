@@ -65,14 +65,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: '/addtutprials',
-        element: (
-          <PrivateRoute>
-            <Addtutprials />
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: '/titorialsdetailspags/:id',
         element: (
@@ -98,6 +91,30 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Profile />,
+      },
+      {
+        path: '/dashboard/mybook',
+        element: (
+          <PrivateRoute>
+            <Mybookedtutor />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard/mytutor',
+        element: (
+          <PrivateRoute>
+            <MyTutorials />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard/addtutprials',
+        element: (
+          <PrivateRoute>
+            <Addtutprials />
+          </PrivateRoute>
+        ),
       },
     ],
   },
